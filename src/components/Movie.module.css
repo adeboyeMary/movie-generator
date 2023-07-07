@@ -1,0 +1,16 @@
+.movies {
+    background-color: rgb(3, 3, 64);
+    margin-top: 2%;
+    padding: 1rem;
+    border-radius: 10px;
+    list-style: none;
+}
+
+.movies h2 {
+    color: yellow;
+    font-weight: bold;
+}
+
+.movies p{
+    color: rgb(176, 112, 176);
+}
