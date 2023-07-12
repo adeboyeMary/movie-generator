@@ -30,7 +30,7 @@ const AddMovie = (props) => {
             </div>
             <div>
                 <label fname='date'>Release Date</label>
-                <input type='text' fname='date' ref={releaseDateInputRef}></input>
+                <input type='date' fname='date' ref={releaseDateInputRef}></input>
             </div>
             <button>Add Movie</button>
         </form>
