@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Movie from './Movie';
-import Card from './UI/Card';
+
 
 const MovieList = (props) => {
     return (
-        <Card>
+        <>
             {props.movies.map((movie) =>
                 <Movie 
                     id={movie.id}
@@ -14,7 +14,7 @@ const MovieList = (props) => {
                     openingText={movie.openingText}
                 />
             )}
-        </Card>
+        </>
     );
 };
 

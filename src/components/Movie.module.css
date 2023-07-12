@@ -1,5 +1,6 @@
 .movies {
-    background-color: rgb(3, 3, 64);
+    background-color: #230052;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     margin-top: 2%;
     padding: 1rem;
     border-radius: 10px;
@@ -7,10 +8,14 @@
 }
 
 .movies h2 {
-    color: yellow;
+    color: #f7e702;
     font-weight: bold;
 }
 
+.movies h3 {
+    color:#eccf77;
+}
+
 .movies p{
-    color: rgb(176, 112, 176);
+    color: white;
 }

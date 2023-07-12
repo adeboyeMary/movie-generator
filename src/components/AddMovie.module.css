@@ -1,0 +1,13 @@
+.form label {
+    display: block;
+    font-weight: bold;
+    text-align: initial;
+    margin-top: 1%;
+}
+
+input {
+    width: 100%;
+}
+ button{
+    margin-top: 2%;
+}

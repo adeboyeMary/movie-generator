@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
+import './App.css';
 
-import styles from './components/button.module.css';
+import AddMovie from './components/AddMovie';
 import MovieList from './components/MovieList';
-import Card from './components/UI/Card';
+// import Card from './components/UI/Card';
 
 
 const App = () => {
@@ -10,7 +11,7 @@ const App = () => {
   const [isLoading,setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
- async function FetchMoviesHandler () {
+ const FetchMoviesHandler = useCallback(async() => {
   setIsLoading(true);
   setError(null);
   try{
@@ -20,6 +21,7 @@ const App = () => {
     }
 
       const data = await response.json();
+
         const transformMovies = data.results.map(movieData => {
           return {
             id: movieData.id,
@@ -33,26 +35,36 @@ const App = () => {
     setError(error.message);
   }
     setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    FetchMoviesHandler();
+  },[FetchMoviesHandler]);
+
+  const addMovieHandler =(movie)=>{
+    console.log(movie);
   };
 
-  let content = <Card><p>Found no movies.</p></Card>;
+
+  let content = <p>Found no movies.</p>;
   if(movies.length > 0) {
     content = <MovieList movies={movies} />;
   };
   if(error){
-    content = <Card><p>{error}</p></Card>;
+    content = <p>{error}</p>;
   };
   if(isLoading){
-    content = <Card><p>Loading...</p></Card>
+    content = <p>Loading...</p>
   };
 
   return (
     <React.Fragment>
-      <Card>
-        <button onClick={FetchMoviesHandler} className={styles.bttn}>
-          Fetch Movies
-        </button>
-      </Card>
+      <section>
+        <AddMovie onAddMovie={addMovieHandler} />
+      </section>
+      <section>
+        <button onClick={FetchMoviesHandler}>Fetch Movies</button>
+      </section>
 
       <section>
         {content}
